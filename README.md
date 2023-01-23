@@ -27,7 +27,7 @@ Factions:
 Any, Independent, Miners, Traders, Pirates, Venghi,	Rebels,	Tecnomancers  
   
 Crew Positions:  
-Engineer, Pilot, Navigator, Supervisor, Gunner, Tactician, Co_Pilot, FirstOfficer, Staff  
+Engineer, Pilot, Navigator, Supervisor, Gunner, Co_Pilot, FirstOfficer, Staff  
   
 Weapon Turret Type:  
 Rotating, limitedArch  
