@@ -11,7 +11,9 @@ It doesn't let you change everything.  You cannot add new turrets, for example, 
 3. Run the game again (main menu is fine), the file will be populated with the base ship stats.  
 4. Close the game, open the .shipmod file in a text editor, modify any stat and restart.  
   
-Be caseful.  If it's a whole number, replace with another whole number.  If you want to add seats, best to copy from another ship which already has them to get the correct structure. 
+Deleting the .shipmod file will revert the ship to its vanilla stats, but unknown what will happen if you have extra crew or weapons equipped when you do this.  
+  
+Be careful.  If it's a whole number, replace with another whole number.  If you want to add seats, best to copy from another ship which already has them to get the correct structure. 
   
 Some of the less obvious stuff:  
 factions = factions who use the ship  
