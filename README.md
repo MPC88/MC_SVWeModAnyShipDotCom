@@ -9,7 +9,9 @@ It doesn't let you change everything.  You cannot add new turrets, for example, 
 1. Run the game once.  A new folder will be created in .\Star Valor\BepInEx\plugins\.  
 2. Create a new file <ship name>.shipmod in this folder.  For example, if I wanted to mod a driller I would create "driller.shipmod".  
 3. Run the game again (main menu is fine), the file will be populated with the base ship stats.  
-4. Close the game, modify any stat and restart.  
+4. Close the game, open the .shipmod file in a text editor, modify any stat and restart.  
+  
+Be caseful.  If it's a whole number, replace with another whole number.  If you want to add seats, best to copy from another ship which already has them to get the correct structure. 
   
 Some of the less obvious stuff:  
 factions = factions who use the ship  
