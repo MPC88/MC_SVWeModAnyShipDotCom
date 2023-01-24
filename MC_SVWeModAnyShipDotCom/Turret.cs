@@ -8,5 +8,6 @@
         public float turnSpeed = 20f;
         public float totalSpace;
         public int maxInstalledWeapons;
+        public TurretMods mods;
     }
 }

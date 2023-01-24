@@ -117,7 +117,30 @@ namespace MC_SVWeModAnyShipDotCom
 							degreesLimit = turret.degreesLimit,
 							turnSpeed = turret.turnSpeed,
 							totalSpace = turret.totalSpace,
-							maxInstalledWeapons = turret.maxInstalledWeapons						
+							maxInstalledWeapons = turret.maxInstalledWeapons,
+							mods = new TurretMods()
+                            {
+								dmgBonus = turret.baseWeaponMods.dmgBonus,
+								criticalChanceBonus = turret.baseWeaponMods.criticalChanceBonus,
+								criticalDamageBonus = turret.baseWeaponMods.criticalDamageBonus,
+								armorPenBonus = turret.baseWeaponMods.armorPenBonus,
+								massKiller = turret.baseWeaponMods.massKiller,
+								rangeBonus = turret.baseWeaponMods.rangeBonus,
+								rangeBonusPerc = turret.baseWeaponMods.rangeBonusPerc,
+								projectileSpeedBonus = turret.baseWeaponMods.projectileSpeedBonus,
+								projectileSpeedPerc = turret.baseWeaponMods.projectileSpeedPerc,
+								heatCapBonus = turret.baseWeaponMods.heatCapBonus,
+								heatCapMod = turret.baseWeaponMods.heatCapMod,
+								weaponHeatMod = turret.baseWeaponMods.weaponHeatMod,
+								chargeTime = turret.baseWeaponMods.chargeTime,
+								chargedFireTime = turret.baseWeaponMods.chargedFireTime,
+								chargedFireCooldown = turret.baseWeaponMods.chargedFireCooldown,
+								fluxDamageMod = turret.baseWeaponMods.fluxDamageMod,
+								explodeBoostChance = turret.baseWeaponMods.explodeBoostChance,
+								explodeBoost = turret.baseWeaponMods.explodeBoost,
+								sizeMod = turret.baseWeaponMods.sizeMod,
+								weaponChargedBaseDamageBoost = turret.baseWeaponMods.weaponChargedBaseDamageBoost
+							}
 						};
                     }
                 }
@@ -164,6 +187,26 @@ namespace MC_SVWeModAnyShipDotCom
 					turret.turnSpeed = moddedShipData.weapons[i].turnSpeed;
 					turret.totalSpace = moddedShipData.weapons[i].totalSpace;
 					turret.maxInstalledWeapons = moddedShipData.weapons[i].maxInstalledWeapons;
+					turret.baseWeaponMods.dmgBonus = moddedShipData.weapons[i].mods.dmgBonus;
+					turret.baseWeaponMods.criticalChanceBonus = moddedShipData.weapons[i].mods.criticalChanceBonus;
+					turret.baseWeaponMods.criticalDamageBonus = moddedShipData.weapons[i].mods.criticalDamageBonus;
+					turret.baseWeaponMods.armorPenBonus = moddedShipData.weapons[i].mods.armorPenBonus;
+					turret.baseWeaponMods.massKiller = moddedShipData.weapons[i].mods.massKiller;
+					turret.baseWeaponMods.rangeBonus = moddedShipData.weapons[i].mods.rangeBonus;
+					turret.baseWeaponMods.rangeBonusPerc = moddedShipData.weapons[i].mods.rangeBonusPerc;
+					turret.baseWeaponMods.projectileSpeedBonus = moddedShipData.weapons[i].mods.projectileSpeedBonus;
+					turret.baseWeaponMods.projectileSpeedPerc = moddedShipData.weapons[i].mods.projectileSpeedPerc;
+					turret.baseWeaponMods.heatCapBonus = moddedShipData.weapons[i].mods.heatCapBonus;
+					turret.baseWeaponMods.heatCapMod = moddedShipData.weapons[i].mods.heatCapMod;
+					turret.baseWeaponMods.weaponHeatMod = moddedShipData.weapons[i].mods.weaponHeatMod;
+					turret.baseWeaponMods.chargeTime = moddedShipData.weapons[i].mods.chargeTime;
+					turret.baseWeaponMods.chargedFireTime = moddedShipData.weapons[i].mods.chargedFireTime;
+					turret.baseWeaponMods.chargedFireCooldown = moddedShipData.weapons[i].mods.chargedFireCooldown;
+					turret.baseWeaponMods.fluxDamageMod = moddedShipData.weapons[i].mods.fluxDamageMod;
+					turret.baseWeaponMods.explodeBoostChance = moddedShipData.weapons[i].mods.explodeBoostChance;
+					turret.baseWeaponMods.explodeBoost = moddedShipData.weapons[i].mods.explodeBoost;
+					turret.baseWeaponMods.sizeMod = moddedShipData.weapons[i].mods.sizeMod;
+					turret.baseWeaponMods.weaponChargedBaseDamageBoost = moddedShipData.weapons[i].mods.weaponChargedBaseDamageBoost;
 				}
             }
 
