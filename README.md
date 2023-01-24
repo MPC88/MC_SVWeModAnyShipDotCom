@@ -6,7 +6,7 @@ Requires BepInEx.
   
 Backup your saves.  
   
-It doesn't let you change everything.  You cannot add new turrets, modify models or textures, ship and turret bonuses changes also not implemented (beyond roles).  
+It doesn't let you change everything.  You cannot add new turrets or modify models or textures.  
   
 1. Run the game once.  A new folder will be created in .\Star Valor\BepInEx\plugins\.  
 2. Create a new file <ship name>.shipmod in this folder.  For example, if I wanted to mod a driller I would create "driller.shipmod".  
