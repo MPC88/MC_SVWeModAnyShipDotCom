@@ -7,67 +7,26 @@ namespace MC_SVWeModAnyShipDotCom
     [Serializable]
     public class SpaceShip
     {
-		// Name		
 		public string shipModelName;
-
-		// Manufacturer
 		public TFaction manufacturer;
-
-		// Class
 		public ShipClassLevel shipClass = ShipClassLevel.Yacht;
-
-		// Role
 		public ShipRole shipRole;
-
-		// Sell chance
 		public int sellChance = 100;
-
-		// Ideal AI level (To have full HP on this ship)
 		public int level = 5;
-
-		// Hull points
 		public int hullPoints = 100;
-
-		// Weapon space
 		public int weaponSpace = 3;
-
-		// Equipment space
 		public int equipSpace = 15;
-
-		// Cargo space
 		public int cargoSpace = 25;
-
-		// Drone hangar space
 		public int hangarDroneSpace;
-
-		// Ship hangar space
 		public int hangarShipSpace;
-
-		// Passenger space
 		public int passengers;
-
-		// Speed
 		public int speed = 10;
-
-		// Agility
 		public int agility = 10;
-
-		// Mass
 		public int mass = 70;
-
-		// Rarity
 		public int rarity = 1;
-
-		// Crew
 		public CrewSeat[] crewSpace;
-
-		// Reputation requirement
 		public ReputationRequisite repReq;
-
-		// Factions who use this ship
 		public TFaction[] factions;
-
-		// Weapon slots
 		public Turret[] weapons;
 
 		internal static SpaceShip GetShip(int id)
@@ -178,7 +137,7 @@ namespace MC_SVWeModAnyShipDotCom
 
 			for (int i = 0; i < moddedShipData.weapons.Length; i++)
             {
-				if (i < smd.weaponSlotsGO.childCount)
+				if (i < smd.weaponSlotsGO.childCount && moddedShipData.weapons[i] != null)
                 {
 					WeaponTurret turret = smd.weaponSlotsGO.GetChild(i).GetComponent<WeaponTurret>();
 					turret.type = moddedShipData.weapons[i].type;
