@@ -23,10 +23,10 @@ namespace MC_SVWeModAnyShipDotCom
 		public float chargeTime;
 		public float chargedFireTime;
 		public float chargedFireCooldown;
-		public float fluxDamageMod;
+		public float fluxDamageMod = 1f;
 		public int explodeBoostChance;
 		public float explodeBoost;
 		public float sizeMod;
-		public float weaponChargedBaseDamageBoost;
+		public float weaponChargedBaseDamageBoost = 1f;
 	}
 }

@@ -140,6 +140,13 @@ namespace MC_SVWeModAnyShipDotCom
 				if (i < smd.weaponSlotsGO.childCount && moddedShipData.weapons[i] != null)
                 {
 					WeaponTurret turret = smd.weaponSlotsGO.GetChild(i).GetComponent<WeaponTurret>();
+
+					if (turret == null)
+						turret = smd.weaponSlotsGO.GetChild(i).gameObject.AddComponent<WeaponTurret>();
+
+					if (turret.baseWeaponMods == null)
+						turret.baseWeaponMods = new WeaponStatsModifier();
+
 					turret.type = moddedShipData.weapons[i].type;
 					turret.spinalMount = moddedShipData.weapons[i].spinalMount;
 					turret.degreesLimit = moddedShipData.weapons[i].degreesLimit;
