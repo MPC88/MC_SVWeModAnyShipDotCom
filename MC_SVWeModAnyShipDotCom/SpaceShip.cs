@@ -151,6 +151,7 @@ namespace MC_SVWeModAnyShipDotCom
 			smd.rarity = moddedShipData.rarity;
 			smd.factions = moddedShipData.factions;
 			smd.repReq = moddedShipData.repReq;
+			smd.crewSpace = moddedShipData.crewSpace;
 
 			for (int i = 0; i < moddedShipData.weapons.Length; i++)
             {

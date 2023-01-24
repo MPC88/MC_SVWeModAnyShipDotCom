@@ -17,7 +17,6 @@ namespace MC_SVWeModAnyShipDotCom
         private const string modFilesDIR = "\\ShipMods\\";
 
         private static string pluginFolder = "";
-        private static bool firstPass = true;
 
         public void Awake()
         {
@@ -84,12 +83,6 @@ namespace MC_SVWeModAnyShipDotCom
         private static void ShipDBLoad_Post()
         {
             LoadModFiles();
-
-            if (firstPass)
-            {
-                firstPass = false;
-                return;
-            }            
         }
     }
 }
