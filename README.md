@@ -1,5 +1,7 @@
 # MC_SVWeModAnyShipDotCom
   
+Modify ship stats, weapon turret properties, crew positions.  
+  
 Requires BepInEx.  
   
 Backup your saves.  
