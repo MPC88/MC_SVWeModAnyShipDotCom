@@ -24,7 +24,6 @@ namespace MC_SVWeModAnyShipDotCom
 		public float chargedFireTime;
 		public float chargedFireCooldown;
 		public float fluxDamageMod;
-		public bool spinalMounted;
 		public int explodeBoostChance;
 		public float explodeBoost;
 		public float sizeMod;
