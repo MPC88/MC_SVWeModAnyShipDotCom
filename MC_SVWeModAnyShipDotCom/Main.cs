@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BepInEx.Logging;
 using HarmonyLib;
 using System.Collections.Generic;
 using System.IO;
@@ -12,11 +13,13 @@ namespace MC_SVWeModAnyShipDotCom
     {
         public const string pluginGuid = "mc.starvalor.wemodanyshipdotcom";
         public const string pluginName = "SV We Mod Any Ship.com";
-        public const string pluginVersion = "1.0.2";
+        public const string pluginVersion = "1.0.3";
                 
         private const string modFilesDIR = "\\ShipMods\\";
 
         private static string pluginFolder = "";
+
+        private static ManualLogSource log = BepInEx.Logging.Logger.CreateLogSource(pluginName);
 
         public void Awake()
         {
@@ -28,27 +31,25 @@ namespace MC_SVWeModAnyShipDotCom
         {
             string path = pluginFolder + modFilesDIR;
             if (!Directory.Exists(path))
-            {
                 Directory.CreateDirectory(path);
-                return;
-            }
 
             Dictionary<string, int> shipNames = GetShipNames();
-            foreach (string file in Directory.GetFiles(path, "*.shipmod"))
+            
+            string[] fileList = Directory.GetFiles(path, "*.shipmod");
+            if (fileList.Length < shipNames.Count)
+                GenerateMissing(shipNames, path);
+
+            fileList = Directory.GetFiles(path, "*.shipmod");
+            foreach (string file in fileList)
             {
                 string fileName = Path.GetFileName(file);
                 if (shipNames.TryGetValue(fileName.Replace(".shipmod", "").ToLower(), out int id))
                 {
-                    if (File.ReadAllBytes(file).Length == 0)
-                        WriteShipData(id, file);
-                    else
+                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(SpaceShip));
+                    using (XmlReader reader = XmlReader.Create(file))
                     {
-                        XmlSerializer xmlSerializer = new XmlSerializer(typeof(SpaceShip));
-                        using(XmlReader reader = XmlReader.Create(file))
-                        {
-                            SpaceShip ss = (SpaceShip) xmlSerializer.Deserialize(reader);
-                            SpaceShip.Modify(id, ss);
-                        }
+                        SpaceShip ss = (SpaceShip)xmlSerializer.Deserialize(reader);
+                        SpaceShip.Modify(id, ss);
                     }
                 }
                 else
@@ -56,6 +57,26 @@ namespace MC_SVWeModAnyShipDotCom
                     File.Copy(path + fileName, path + "ERR" + fileName, true);
                     File.Delete(path + fileName);
                 }
+            }
+        }
+
+        private static void GenerateMissing(Dictionary<string, int> shipNames, string path)
+        {
+            foreach (KeyValuePair<string, int> ship in shipNames)
+            {
+                bool found = false;
+                foreach (string file in Directory.GetFiles(path, "*.shipmod"))
+                {
+                    string fileName = Path.GetFileName(file);
+                    if (fileName.ToLower().Equals(ship.Key))
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                    WriteShipData(ship.Value, path + ship.Key + ".shipmod");
             }
         }
 
