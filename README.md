@@ -8,10 +8,11 @@ Backup your saves.
   
 It doesn't let you change everything.  You cannot add new turrets or modify models or textures.  
   
-1. Run the game once.  A new folder will be created in .\Star Valor\BepInEx\plugins\.  
-2. Create a new file <ship name>.shipmod in this folder.  For example, if I wanted to mod a driller I would create "driller.shipmod".  
-3. Run the game again (main menu is fine), the file will be populated with the base ship stats.  
-4. Close the game, open the .shipmod file in a text editor, modify any stat(s) and restart.  
+1. Run the game once.  A new folder will be created in .\Star Valor\BepInEx\plugins\ with shipmod files for all ships in the game.  
+2. Run the game again (main menu is fine), the file will be populated with the base ship stats.  
+3. Close the game, open the .shipmod file in a text editor, modify any stat(s) and restart.  
+  
+Note that new ships will automatically have a .shipmod file generated, but any changes to existing ships by official patches will not be included unless the existing .shipmod file is deleted, allowing the mod to generate a new one with new base stats for the ship.  
   
 Deleting the .shipmod file will revert the ship to its vanilla stats, but unknown what will happen if you have extra crew or weapons equipped when you do this.  
   
