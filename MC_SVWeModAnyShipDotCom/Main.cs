@@ -13,7 +13,7 @@ namespace MC_SVWeModAnyShipDotCom
     {
         public const string pluginGuid = "mc.starvalor.wemodanyshipdotcom";
         public const string pluginName = "SV We Mod Any Ship.com";
-        public const string pluginVersion = "1.0.3";
+        public const string pluginVersion = "1.0.4";
                 
         private const string modFilesDIR = "\\ShipMods\\";
 
@@ -68,10 +68,9 @@ namespace MC_SVWeModAnyShipDotCom
                 foreach (string file in Directory.GetFiles(path, "*.shipmod"))
                 {
                     string fileName = Path.GetFileName(file);
-                    if (fileName.ToLower().Equals(ship.Key))
+                    if (fileName.Replace(".shipmod", "").ToLower().Equals(ship.Key))
                     {
                         found = true;
-                        break;
                     }
                 }
 

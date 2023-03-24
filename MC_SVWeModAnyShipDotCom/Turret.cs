@@ -1,5 +1,6 @@
 ﻿namespace MC_SVWeModAnyShipDotCom
 {
+    public enum UndefBool { Unknown, False, True }
     public class Turret
     {
         public WeaponTurretType type;
@@ -9,5 +10,6 @@
         public float totalSpace;
         public int maxInstalledWeapons;
         public TurretMods mods;
+        public UndefBool hasSpecialStats = UndefBool.Unknown;
     }
 }

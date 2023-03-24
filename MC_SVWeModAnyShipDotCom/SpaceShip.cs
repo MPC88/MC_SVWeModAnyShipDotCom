@@ -77,6 +77,7 @@ namespace MC_SVWeModAnyShipDotCom
 							turnSpeed = turret.turnSpeed,
 							totalSpace = turret.totalSpace,
 							maxInstalledWeapons = turret.maxInstalledWeapons,
+							hasSpecialStats = turret.hasSpecialStats ? UndefBool.True:UndefBool.False,
 							mods = new TurretMods()
                             {
 								dmgBonus = turret.baseWeaponMods.dmgBonus,
@@ -153,6 +154,10 @@ namespace MC_SVWeModAnyShipDotCom
 					turret.turnSpeed = moddedShipData.weapons[i].turnSpeed;
 					turret.totalSpace = moddedShipData.weapons[i].totalSpace;
 					turret.maxInstalledWeapons = moddedShipData.weapons[i].maxInstalledWeapons;
+					if (moddedShipData.weapons[i].hasSpecialStats == UndefBool.False)
+						turret.hasSpecialStats = false;
+					else if (moddedShipData.weapons[i].hasSpecialStats == UndefBool.True)
+						turret.hasSpecialStats = true;
 					turret.baseWeaponMods.dmgBonus = moddedShipData.weapons[i].mods.dmgBonus;
 					turret.baseWeaponMods.criticalChanceBonus = moddedShipData.weapons[i].mods.criticalChanceBonus;
 					turret.baseWeaponMods.criticalDamageBonus = moddedShipData.weapons[i].mods.criticalDamageBonus;
