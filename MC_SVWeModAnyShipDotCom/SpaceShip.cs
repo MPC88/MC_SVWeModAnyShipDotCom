@@ -207,7 +207,7 @@ namespace MC_SVWeModAnyShipDotCom
 			if(moddedShipData.sizeScale > 0)
 				smd.sizeScale = moddedShipData.sizeScale;
 			smd.weaponSlotsGO = ModifyWeaponSlots(moddedShipData.weapons, smd.weaponSlotsGO);
-			if(moddedShipData.bonuses != null && moddedShipData.bonuses.Length > 0)
+			if(moddedShipData.bonuses != null)
 				smd.modelBonus = ModifyBonuses(moddedShipData.bonuses, smd.modelBonus);
 
 			return true;
