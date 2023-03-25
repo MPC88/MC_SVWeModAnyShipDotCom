@@ -1,8 +1,11 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using System.Threading;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -13,13 +16,13 @@ namespace MC_SVWeModAnyShipDotCom
     {
         public const string pluginGuid = "mc.starvalor.wemodanyshipdotcom";
         public const string pluginName = "SV We Mod Any Ship.com";
-        public const string pluginVersion = "1.0.4";
+        public const string pluginVersion = "1.0.5";
                 
         private const string modFilesDIR = "\\ShipMods\\";
 
         private static string pluginFolder = "";
 
-        private static ManualLogSource log = BepInEx.Logging.Logger.CreateLogSource(pluginName);
+        internal static ManualLogSource log = BepInEx.Logging.Logger.CreateLogSource(pluginName);
 
         public void Awake()
         {
@@ -34,7 +37,7 @@ namespace MC_SVWeModAnyShipDotCom
                 Directory.CreateDirectory(path);
 
             Dictionary<string, int> shipNames = GetShipNames();
-            
+
             string[] fileList = Directory.GetFiles(path, "*.shipmod");
             if (fileList.Length < shipNames.Count)
                 GenerateMissing(shipNames, path);
@@ -48,7 +51,7 @@ namespace MC_SVWeModAnyShipDotCom
                     XmlSerializer xmlSerializer = new XmlSerializer(typeof(SpaceShip));
                     using (XmlReader reader = XmlReader.Create(file))
                     {
-                        SpaceShip ss = (SpaceShip)xmlSerializer.Deserialize(reader);
+                        SpaceShip ss = (SpaceShip)xmlSerializer.Deserialize(reader);                        
                         SpaceShip.Modify(id, ss);
                     }
                 }
@@ -102,7 +105,7 @@ namespace MC_SVWeModAnyShipDotCom
         [HarmonyPostfix]
         private static void ShipDBLoad_Post()
         {
-            LoadModFiles();
+            LoadModFiles();            
         }
     }
 }
