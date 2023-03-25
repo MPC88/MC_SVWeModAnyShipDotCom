@@ -301,22 +301,7 @@ namespace MC_SVWeModAnyShipDotCom
 								field.SetValue(newBonus, field.GetValue(originalBonusList[j]));
                             }
 
-							foreach (SSBonus.BonusProperty property in moddedBonuses[i].properties)
-							{
-								FieldInfo field = bonusType.GetField(property.name);
-								object val = property.value;
-
-								if (field.Name.Equals("bonus") &&
-									field.FieldType == typeof(Single[]) &&
-									bonusType.IsSubclassOf(typeof(CrewBonus)))
-									val = new float[1] { (float)val };
-                                else if (field.Name.Equals("shipBonuses") &&
-                                    field.FieldType == typeof(ShipBonus[]) &&
-                                    bonusType == typeof(SB_FleetShipBonuses))
-                                    val = ModifyBonuses((SSBonus[])val, (ShipBonus[])field.GetValue(originalBonusList[j]));
-                                
-								field.SetValue(newBonus, val);								
-							}
+							newBonus = ModifyBonus(bonusType, moddedBonuses[i], newBonus);
 							newBonusList.Add(newBonus);
 
 							usedInstances[bonusType]++;
@@ -333,10 +318,43 @@ namespace MC_SVWeModAnyShipDotCom
 			if (newBonuses.Count > 0)
             {
 				//TODO: Adding new bonuses
+				foreach (int i in newBonuses)
+                {
+					Type bonusType;
+
+					if (bonusList.TryGetValue(moddedBonuses[i].type, out bonusType))
+					{
+						ShipBonus newBonus = (ShipBonus)ScriptableObject.CreateInstance(bonusType);
+						newBonus = ModifyBonus(bonusType, moddedBonuses[i], newBonus);
+						newBonusList.Add(newBonus);
+					}
+				}
             }
 
 			return newBonusList.ToArray();
         }
+
+		private static ShipBonus ModifyBonus(Type bonusType, SSBonus moddedBonus, ShipBonus newBonus)
+        {
+			foreach (SSBonus.BonusProperty property in moddedBonus.properties)
+			{
+				FieldInfo field = bonusType.GetField(property.name);
+				object val = property.value;
+
+				if (field.Name.Equals("bonus") &&
+					field.FieldType == typeof(Single[]) &&
+					bonusType.IsSubclassOf(typeof(CrewBonus)))
+					val = new float[1] { (float)val };
+				else if (field.Name.Equals("shipBonuses") &&
+					field.FieldType == typeof(ShipBonus[]) &&
+					bonusType == typeof(SB_FleetShipBonuses))
+					val = ModifyBonuses((SSBonus[])val, (ShipBonus[])field.GetValue(newBonus));
+
+				field.SetValue(newBonus, val);
+			}
+
+			return newBonus;
+		}
 
 		private static Dictionary<string, Type> GetBonusList()
 		{
