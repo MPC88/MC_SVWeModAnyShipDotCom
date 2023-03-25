@@ -34,6 +34,8 @@ namespace MC_SVWeModAnyShipDotCom
 		public Turret[] weapons;
 		public SSBonus[] bonuses;
 
+		private static bool db = false;
+
 		internal static SpaceShip GetShip(int id)
         {
 			ShipModelData smd = ShipDB.GetModel(id);
@@ -276,7 +278,8 @@ namespace MC_SVWeModAnyShipDotCom
 
 			// Logs bonus indexes where no existing ship bonus is found
 			List<int> newBonuses = new List<int>();
-
+			//TEMP
+			if (db) Main.log.LogInfo("2");
 			// Update existing bonuses
 			for (int i = 0; i < moddedBonuses.Length; i++)
             {
@@ -290,10 +293,15 @@ namespace MC_SVWeModAnyShipDotCom
 					if (used == 0)
 						usedInstances.Add(bonusType, 0);
 
+					//TEMP
+					if (db) Main.log.LogInfo("3");
+
 					int instance = 0;
 					for (int j = 0; j < originalBonusList.Length; j++)
                     {
-                        if (originalBonusList[j].GetType() == bonusType && instance++ == used)
+						//TEMP
+						if (db) Main.log.LogInfo("4");
+						if (originalBonusList[j].GetType() == bonusType && instance++ == used)
                         {
 							ShipBonus newBonus = (ShipBonus)ScriptableObject.CreateInstance(bonusType);
 							foreach (FieldInfo field in bonusType.GetFields())
@@ -324,6 +332,11 @@ namespace MC_SVWeModAnyShipDotCom
 
 					if (bonusList.TryGetValue(moddedBonuses[i].type, out bonusType))
 					{
+						//TEMP
+						if (bonusType == typeof(SB_FleetShipBonuses))
+							db = true;
+						if (db) Main.log.LogInfo("1");
+						
 						ShipBonus newBonus = (ShipBonus)ScriptableObject.CreateInstance(bonusType);
 						newBonus = ModifyBonus(bonusType, moddedBonuses[i], newBonus);
 						newBonusList.Add(newBonus);
@@ -345,10 +358,12 @@ namespace MC_SVWeModAnyShipDotCom
 					field.FieldType == typeof(Single[]) &&
 					bonusType.IsSubclassOf(typeof(CrewBonus)))
 					val = new float[1] { (float)val };
-				else if (field.Name.Equals("shipBonuses") &&
-					field.FieldType == typeof(ShipBonus[]) &&
-					bonusType == typeof(SB_FleetShipBonuses))
-					val = ModifyBonuses((SSBonus[])val, (ShipBonus[])field.GetValue(newBonus));
+				else if (field.FieldType == typeof(ShipBonus[]))
+				{
+					//TEMP
+					if (db) Main.log.LogInfo("1");
+					val = ModifyBonuses((SSBonus[])val, new ShipBonus[0]);
+				}
 
 				field.SetValue(newBonus, val);
 			}

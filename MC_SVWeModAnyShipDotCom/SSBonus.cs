@@ -14,8 +14,7 @@ namespace MC_SVWeModAnyShipDotCom
             "field",
             "minSkillRank",
             "shipEnhancementRank",
-            "hideFleetShipGainText",
-            "manufacturer"
+            "hideFleetShipGainText"
         };
 
         public string type;
