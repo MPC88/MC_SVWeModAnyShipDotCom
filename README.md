@@ -15,11 +15,10 @@ This mod will increase the game load time, especially on the first run.
 
 ## Use
   
-Modify ship stats, weapon turret properties, crew positions.  The mod doesn't let you change everything.  You cannot add new turrets or modify models or textures.  
+Modify ship stats, weapon turret properties, crew positions, bonuses etc.  The mod doesn't let you change everything.  You cannot add new turrets or modify models or textures.  
   
 1. Run the game once.  A new folder will be created in .\Star Valor\BepInEx\plugins\ with shipmod files for all ships in the game.  
-2. Run the game again (main menu is fine), the file will be populated with the base ship stats.  
-3. Close the game, open the .shipmod file in a text editor, modify any stat(s) and restart.  
+2. Close the game, open the .shipmod file in a text editor, modify any stat(s) and restart.  
   
 Note that new ships will automatically have a .shipmod file generated, but any changes to existing ships by official patches will not be included unless the existing .shipmod file is deleted, allowing the mod to generate a new one with new base stats for the ship.  
   
