@@ -1,11 +1,8 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
-using System.Threading;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -16,7 +13,7 @@ namespace MC_SVWeModAnyShipDotCom
     {
         public const string pluginGuid = "mc.starvalor.wemodanyshipdotcom";
         public const string pluginName = "SV We Mod Any Ship.com";
-        public const string pluginVersion = "1.1.1";
+        public const string pluginVersion = "1.2.0";
                 
         private const string modFilesDIR = "\\ShipMods\\";
 

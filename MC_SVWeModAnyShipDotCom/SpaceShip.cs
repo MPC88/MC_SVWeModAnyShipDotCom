@@ -369,6 +369,8 @@ namespace MC_SVWeModAnyShipDotCom
 			//SB_Flux and SB_FluxPassiveBonus aren't in ShipBonusDB because reasons
 			bonuses.Add("SB_Flux", typeof(SB_Flux));
 			bonuses.Add("SB_FluxPassiveBonus", typeof(SB_FluxPassiveBonus));
+			bonuses.Add("SB_PassiveBuff", typeof(SB_PassiveBuff));
+			bonuses.Add("SB_VariableStat", typeof(SB_VariableStat));
 
 			return bonuses;
 		}
