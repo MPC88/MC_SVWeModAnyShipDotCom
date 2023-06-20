@@ -1,10 +1,14 @@
 # MC_SVWeModAnyShipDotCom
   
+Uninstall any mods and attempt to repeat any issues you suspect may exist with the vanilla game before reporting on the forums or discord.  
+  
 Modify ship stats, weapon turret properties, crew positions.  
   
 Requires BepInEx.  
   
 Backup your saves.  
+  
+This mod will increase the game load time, especially on the first run.  
   
 It doesn't let you change everything.  You cannot add new turrets or modify models or textures.  
   
