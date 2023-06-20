@@ -366,7 +366,27 @@ namespace MC_SVWeModAnyShipDotCom
 					bonuses.Add(bonusType.Name, bonusType);
 			}
 
-			//SB_Flux and SB_FluxPassiveBonus aren't in ShipBonusDB because reasons
+			//Add ones not included in database lists
+			bonuses.Add("CB_TurnSpeed", typeof(CB_TurnSpeed));
+			bonuses.Add("SB_Agility", typeof(SB_Agility));
+			bonuses.Add("SB_AmmoReplicator", typeof(SB_AmmoReplicator));
+			bonuses.Add("SB_ArmorPiercing", typeof(SB_ArmorPiercing));
+			bonuses.Add("SB_CloakCost", typeof(SB_CloakCost));
+			bonuses.Add("SB_CloakCoT", typeof(SB_CloakCoT));
+			bonuses.Add("SB_CreditLoot", typeof(SB_CreditLoot));
+			bonuses.Add("SB_DmgTolerance", typeof(SB_DmgTolerance));
+			bonuses.Add("SB_Explorer", typeof(SB_Explorer));
+			bonuses.Add("SB_JunkTreasure", typeof(SB_JunkTreasure));
+			bonuses.Add("SB_MassSupremacy", typeof(SB_MassSupremacy));
+			bonuses.Add("SB_ProjectileSpeed", typeof(SB_ProjectileSpeed));
+			bonuses.Add("SB_Prospect", typeof(SB_Prospect));
+			bonuses.Add("SB_Sensor", typeof(SB_Sensor));
+			bonuses.Add("SB_Speed", typeof(SB_Speed));
+			bonuses.Add("SB_Strafe", typeof(SB_Strafe));
+			bonuses.Add("SB_TradeMod", typeof(SB_TradeMod));
+			bonuses.Add("SB_Velocity", typeof(SB_Velocity));
+			bonuses.Add("SB_WarpTowage", typeof(SB_WarpTowage));
+			bonuses.Add("SB_WeaponSpace", typeof(SB_WeaponSpace));
 			bonuses.Add("SB_Flux", typeof(SB_Flux));
 			bonuses.Add("SB_FluxPassiveBonus", typeof(SB_FluxPassiveBonus));
 			bonuses.Add("SB_PassiveBuff", typeof(SB_PassiveBuff));
