@@ -51,6 +51,18 @@ The list shows the xml format you need.  Just copy-paste into the relevant ShipB
 ```
 
 I would modify the 0.0 to whatever I wanted.  Nothing else should be changed.
+
+If a ship does not have any existing bonuses i.e. has an entry like
+```
+<bonuses />
+```
+  
+Replace that line with the following two lines
+```
+<bonuses>
+</bonuses>
+```
+then add SSBonus entries between those lines as normal
   
 Refer to the list below for possible values for types:
 
