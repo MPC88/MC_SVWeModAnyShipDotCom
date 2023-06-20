@@ -2,15 +2,20 @@
   
 Uninstall any mods and attempt to repeat any issues you suspect may exist with the vanilla game before reporting on the forums or discord.  
   
-Modify ship stats, weapon turret properties, crew positions.  
-  
-Requires BepInEx.  
-  
 Backup your saves.  
   
 This mod will increase the game load time, especially on the first run.  
   
-It doesn't let you change everything.  You cannot add new turrets or modify models or textures.  
+## Installation
+
+1. Install BepInEx - https://docs.bepinex.dev/articles/user_guide/installation/index.html Stable version 5.4.21 x86.  
+2. Run the game at least once to initialise BepInEx and quit.  
+3. Download latest mod release.  
+4. Place MC_SVWeModAnyShipDotCom.dll in .\SteamLibrary\steamapps\common\Star Valor\BepInEx\plugins\  
+
+## Use
+  
+Modify ship stats, weapon turret properties, crew positions.  The mod doesn't let you change everything.  You cannot add new turrets or modify models or textures.  
   
 1. Run the game once.  A new folder will be created in .\Star Valor\BepInEx\plugins\ with shipmod files for all ships in the game.  
 2. Run the game again (main menu is fine), the file will be populated with the base ship stats.  
