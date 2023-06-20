@@ -73,7 +73,7 @@ TFaction
 Any, Independent, Miners, Traders, Pirates, Venghi, Rebels, Tecnomancers
 
 ArrayOfSSBonus  
-One or more <SSBonus> sub-entries (from the list below) should be added.  Different example values are shown for SB_FleetShipBonuses bonus and fleetshSB_ShipManufacturerBonus.  Iziko.shipmod has further examples.
+One or more <SSBonus> sub-entries (from the list below) should be added.  Different example values are shown for SB_FleetShipBonuses bonus and SB_ShipManufacturerBonus.  Iziko.shipmod has further examples.
   
 VariableStatType  
 CollectorRange, CollectorSpeed, BlueprintChance, LootSoundWarning, LootDetectStrong, CantBuyEquipmentOrShip, BasicBlueprints, RepairOnScavenge
