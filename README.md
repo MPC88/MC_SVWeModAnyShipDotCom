@@ -6,7 +6,7 @@ Backup your saves.
   
 This mod will increase the game load time, especially on the first run.  
 
-WARNING: When this mod first runs, it generals .shipmod xmlfiles for all ships in the game.  It then loads those and overrides in-game settings.  This means if an official update changes an existing ship, this mod will override those.  To resolve this, delete the .xml file for the updated ship.
+WARNING: When this mod first runs, it generals .shipmod xml files for all ships in the game.  It then loads those and overrides in-game settings.  This means if an official update changes an existing ship, this mod will override those.  To resolve this, delete the .xml file for the updated ship.
   
 ## Installation
 
