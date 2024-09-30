@@ -138,7 +138,7 @@ namespace MC_SVWeModAnyShipDotCom
 					WeaponTurret turret = smd.weaponSlotsGO.GetChild(i).GetComponent<WeaponTurret>();
 					if (turret != null)
 					{
-						weapons[i] = new Turret()
+						Turret t = new Turret()
 						{
 							type = turret.type,
 							spinalMount = turret.spinalMount,
@@ -169,9 +169,25 @@ namespace MC_SVWeModAnyShipDotCom
 								explodeBoost = turret.baseWeaponMods.explodeBoost,
 								sizeMod = turret.baseWeaponMods.sizeMod,
 								weaponChargedBaseDamageBoost = turret.baseWeaponMods.weaponChargedBaseDamageBoost
-							}
+							}							
 						};
-					}
+
+                        if (turret.baseWeaponMods.tempDmgBonus != null && turret.baseWeaponMods.tempDmgBonus.Count > 0)
+                        {
+							t.mods.tempDmgBonus = new List<TempDamageBonus>();
+							foreach(TempDmgBonus tdb in turret.baseWeaponMods.tempDmgBonus)
+							{
+								TempDamageBonus bonus = new TempDamageBonus()
+								{
+									type = (TempDamageBonus.BonusType)tdb.type,
+									bonus = tdb.bonus
+								};
+								t.mods.tempDmgBonus.Add(bonus);
+							}
+                        }
+
+						weapons[i] = t;
+                    }
 				}
 			}
 
@@ -257,6 +273,29 @@ namespace MC_SVWeModAnyShipDotCom
 					turret.baseWeaponMods.explodeBoost = moddedWeapons[i].mods.explodeBoost;
 					turret.baseWeaponMods.sizeMod = moddedWeapons[i].mods.sizeMod;
 					turret.baseWeaponMods.weaponChargedBaseDamageBoost = moddedWeapons[i].mods.weaponChargedBaseDamageBoost;
+
+					if (moddedWeapons[i].mods.tempDmgBonus.Count > 0)
+					{
+						if (turret.baseWeaponMods.tempDmgBonus == null)
+							turret.baseWeaponMods.tempDmgBonus = new List<TempDmgBonus>();
+
+						for(int j = 0; j < moddedWeapons[i].mods.tempDmgBonus.Count; j++)
+						{
+							if (turret.baseWeaponMods.tempDmgBonus == null)
+								turret.baseWeaponMods.tempDmgBonus = new List<TempDmgBonus>();
+
+							if (moddedWeapons[i].mods.tempDmgBonus[j].type == TempDamageBonus.BonusType.Remove)
+								turret.baseWeaponMods.tempDmgBonus.RemoveAt(j);
+							else
+							{
+								TempDmgBonus bonus = new TempDmgBonus(
+									(int)moddedWeapons[i].mods.tempDmgBonus[j].type,
+									moddedWeapons[i].mods.tempDmgBonus[j].bonus);
+
+								turret.baseWeaponMods.tempDmgBonus[j] = bonus;
+							}
+						}
+					}
 				}
 			}
 

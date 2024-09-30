@@ -28,5 +28,6 @@ namespace MC_SVWeModAnyShipDotCom
 		public float explodeBoost;
 		public float sizeMod;
 		public float weaponChargedBaseDamageBoost = 1f;
+		public List<TempDamageBonus> tempDmgBonus;
 	}
 }
