@@ -50,6 +50,11 @@ Engineer, Pilot, Navigator, Supervisor, Gunner, Co_Pilot, FirstOfficer, Staff
   
 Weapon Turret Type  
 Rotating, limitedArch  
+
+Temp Damage Bonus (weapon slot damage bonus)  
+All, Energy, Cannon, Vulcan, Missile, MiningLaser, Plasma, Mine, Torpedo, Pulse, Railgun, Repair, Remove  
+  
+Note: "Remove" exists as a means to remove a damage bonus while maintaining backwards compatability with shipmod files generated with previous versions of the mod i.e. the mod wont remove bonuses where none are defined in the .shipmod XML.  
   
 ## Ship Bonuses
   
