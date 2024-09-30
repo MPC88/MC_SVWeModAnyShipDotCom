@@ -284,15 +284,19 @@ namespace MC_SVWeModAnyShipDotCom
 							if (turret.baseWeaponMods.tempDmgBonus == null)
 								turret.baseWeaponMods.tempDmgBonus = new List<TempDmgBonus>();
 
-							if (moddedWeapons[i].mods.tempDmgBonus[j].type == TempDamageBonus.BonusType.Remove)
+                            if (moddedWeapons[i].mods.tempDmgBonus[j].type == TempDamageBonus.BonusType.Remove &&
+								j < turret.baseWeaponMods.tempDmgBonus.Count)
 								turret.baseWeaponMods.tempDmgBonus.RemoveAt(j);
-							else
+							else if (moddedWeapons[i].mods.tempDmgBonus[j].type != TempDamageBonus.BonusType.Remove)
 							{
 								TempDmgBonus bonus = new TempDmgBonus(
 									(int)moddedWeapons[i].mods.tempDmgBonus[j].type,
 									moddedWeapons[i].mods.tempDmgBonus[j].bonus);
 
-								turret.baseWeaponMods.tempDmgBonus[j] = bonus;
+								if (j >= turret.baseWeaponMods.tempDmgBonus.Count)
+									turret.baseWeaponMods.tempDmgBonus.Add(bonus);
+								else
+									turret.baseWeaponMods.tempDmgBonus[j] = bonus;
 							}
 						}
 					}
