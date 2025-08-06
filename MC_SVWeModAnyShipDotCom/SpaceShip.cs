@@ -328,8 +328,8 @@ namespace MC_SVWeModAnyShipDotCom
 				if (bonusList.TryGetValue(moddedBonuses[i].type, out bonusType))
 				{
 					bool updateDone = false;
-					int used = usedInstances.ContainsKey(bonusType) ? usedInstances[bonusType] : 0;
-					if (used == 0)
+					int used = usedInstances.ContainsKey(bonusType) ? usedInstances[bonusType] : -1;
+					if (used == -1)
 						usedInstances.Add(bonusType, 0);
 
 					int instance = 0;
