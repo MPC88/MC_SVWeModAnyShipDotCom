@@ -13,7 +13,7 @@ namespace MC_SVWeModAnyShipDotCom
     {
         public const string pluginGuid = "mc.starvalor.wemodanyshipdotcom";
         public const string pluginName = "SV We Mod Any Ship.com";
-        public const string pluginVersion = "1.2.3";
+        public const string pluginVersion = "1.3.0";
                 
         private const string modFilesDIR = "\\ShipMods\\";
 
