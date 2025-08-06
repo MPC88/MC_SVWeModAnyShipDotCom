@@ -377,7 +377,10 @@ namespace MC_SVWeModAnyShipDotCom
         }
 
 		private static ShipBonus ModifyBonus(Type bonusType, SSBonus moddedBonus, ShipBonus newBonus)
-        {
+		{
+			if (moddedBonus.properties == null)
+				return newBonus;
+
 			foreach (SSBonus.BonusProperty property in moddedBonus.properties)
 			{
 				FieldInfo field = bonusType.GetField(property.name);
