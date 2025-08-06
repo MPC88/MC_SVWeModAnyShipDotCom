@@ -102,8 +102,8 @@ Any, Independent, Miners, Traders, Pirates, Venghi, Rebels, Tecnomancers
 ArrayOfSSBonus  
 One or more <SSBonus> sub-entries (from the list below) should be added.  Different example values are shown for SB_FleetShipBonuses bonus and SB_ShipManufacturerBonus.  Iziko.shipmod has further examples.
   
-VariableStatType  
-CollectorRange, CollectorSpeed, BlueprintChance, LootSoundWarning, LootDetectStrong, CantBuyEquipmentOrShip, BasicBlueprints, RepairOnScavenge
+VariableStatType values  
+0 - CollectorRange, 1 - CollectorSpeed, 2 - BlueprintChance, 3 - LootSoundWarning, 4 - LootDetectStrong, 5 - CantBuyEquipmentOrShip, 6 - BasicBlueprints, 7 - RepairOnScavenge
   
 ### Bonuses
 
@@ -1242,11 +1242,11 @@ CollectorRange, CollectorSpeed, BlueprintChance, LootSoundWarning, LootDetectStr
 	<properties>
 		<BonusProperty>
 			<name>varStatType</name>
-			<value xsi:type="VariableStatType">CollectorRange</value>
+			<value xsi:type="int">0</value>
 		</BonusProperty>
 		<BonusProperty>
 			<name>value</name>
-			<value xsi:type="xsd:float">0.0</value>
+			<value xsi:type="xsd:float">1.0</value>
 		</BonusProperty>
 	</properties>
 </SSBonus>
